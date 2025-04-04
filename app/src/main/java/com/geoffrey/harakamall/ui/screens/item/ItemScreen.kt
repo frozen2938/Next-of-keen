@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
@@ -39,13 +41,15 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.geoffrey.harakamall.R
 import com.geoffrey.harakamall.ui.theme.neworange
 import com.geoffrey.harakamall.ui.theme.newwhite
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ItemScreen(){
+fun ItemScreen(navController: NavController){
     Column (
         modifier = Modifier.fillMaxSize()
     ){
@@ -102,174 +106,231 @@ fun ItemScreen(){
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        //Row Start
-        Row (
-            modifier = Modifier.padding(start = 20.dp)
-        ){
-            Image(
-                painter = painterResource(R.drawable.shop),
-                contentDescription = "shop",
-                modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.FillWidth
-            )
+       Column (modifier = Modifier.verticalScroll(rememberScrollState())){
 
-            Spacer(modifier = Modifier.width(20.dp))
+           //Row Start
+           Row (
+               modifier = Modifier.padding(start = 20.dp)
+           ){
+               Image(
+                   painter = painterResource(R.drawable.shop),
+                   contentDescription = "shop",
+                   modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
+                   contentScale = ContentScale.FillWidth
+               )
 
-            Column (){
-                Text(
-                    text = "Men's T-Shirt",
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.ExtraBold,
-                )
-                Text(
-                    text = "Casual wear",
-                    fontSize = 15.sp,
-                )
-                Text(
-                    text = "Ksh.2000",
-                    fontSize = 15.sp,
-                    textDecoration = TextDecoration.LineThrough
-                )
-                Text(
-                    text = "Price : Ksh.1900",
-                    fontSize = 15.sp,
-                )
-                Row (){
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
-                }
+               Spacer(modifier = Modifier.width(20.dp))
 
-                Button(
-                    onClick = {},
-                    colors = ButtonDefaults.buttonColors(neworange),
-                    shape = RoundedCornerShape(10.dp),
-                    modifier = Modifier.fillMaxWidth().padding(end = 20.dp)
+               Column (){
+                   Text(
+                       text = "Men's T-Shirt",
+                       fontSize = 20.sp,
+                       fontWeight = FontWeight.ExtraBold,
+                   )
+                   Text(
+                       text = "Casual wear",
+                       fontSize = 15.sp,
+                   )
+                   Text(
+                       text = "Ksh.2000",
+                       fontSize = 15.sp,
+                       textDecoration = TextDecoration.LineThrough
+                   )
+                   Text(
+                       text = "Price : Ksh.1900",
+                       fontSize = 15.sp,
+                   )
+                   Row (){
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                   }
 
-                ) {
-                    Text(
-                        text = "Contact Us",
-                    )
-                }
+                   Button(
+                       onClick = {},
+                       colors = ButtonDefaults.buttonColors(neworange),
+                       shape = RoundedCornerShape(10.dp),
+                       modifier = Modifier.fillMaxWidth().padding(end = 20.dp)
 
-            }
-        }
-        //End of Row
+                   ) {
+                       Text(
+                           text = "Contact Us",
+                       )
+                   }
 
-        Spacer(modifier = Modifier.height(20.dp))
+               }
+           }
+           //End of Row
 
-        //Row Start
-        Row (
-            modifier = Modifier.padding(start = 20.dp)
-        ){
-            Image(
-                painter = painterResource(R.drawable.shop),
-                contentDescription = "shop",
-                modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.FillWidth
-            )
+           Spacer(modifier = Modifier.height(20.dp))
 
-            Spacer(modifier = Modifier.width(20.dp))
+           //Row Start
+           Row (
+               modifier = Modifier.padding(start = 20.dp)
+           ){
+               Image(
+                   painter = painterResource(R.drawable.shop),
+                   contentDescription = "shop",
+                   modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
+                   contentScale = ContentScale.FillWidth
+               )
 
-            Column (){
-                Text(
-                    text = "Men's T-Shirt",
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.ExtraBold,
-                )
-                Text(
-                    text = "Casual wear",
-                    fontSize = 15.sp,
-                )
-                Text(
-                    text = "Ksh.2000",
-                    fontSize = 15.sp,
-                    textDecoration = TextDecoration.LineThrough
-                )
-                Text(
-                    text = "Price : Ksh.1900",
-                    fontSize = 15.sp,
-                )
-                Row (){
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
-                }
+               Spacer(modifier = Modifier.width(20.dp))
 
-                Button(
-                    onClick = {},
-                    colors = ButtonDefaults.buttonColors(neworange),
-                    shape = RoundedCornerShape(10.dp),
-                    modifier = Modifier.fillMaxWidth().padding(end = 20.dp)
+               Column (){
+                   Text(
+                       text = "Men's T-Shirt",
+                       fontSize = 20.sp,
+                       fontWeight = FontWeight.ExtraBold,
+                   )
+                   Text(
+                       text = "Casual wear",
+                       fontSize = 15.sp,
+                   )
+                   Text(
+                       text = "Ksh.2000",
+                       fontSize = 15.sp,
+                       textDecoration = TextDecoration.LineThrough
+                   )
+                   Text(
+                       text = "Price : Ksh.1900",
+                       fontSize = 15.sp,
+                   )
+                   Row (){
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                   }
 
-                ) {
-                    Text(
-                        text = "Contact Us",
-                    )
-                }
+                   Button(
+                       onClick = {},
+                       colors = ButtonDefaults.buttonColors(neworange),
+                       shape = RoundedCornerShape(10.dp),
+                       modifier = Modifier.fillMaxWidth().padding(end = 20.dp)
 
-            }
-        }
-        //End of Row
-        Spacer(modifier = Modifier.height(20.dp))
+                   ) {
+                       Text(
+                           text = "Contact Us",
+                       )
+                   }
 
-        //Row Start
-        Row (
-            modifier = Modifier.padding(start = 20.dp)
-        ){
-            Image(
-                painter = painterResource(R.drawable.shop),
-                contentDescription = "shop",
-                modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.FillWidth
-            )
+               }
+           }
+           //End of Row
+           Spacer(modifier = Modifier.height(20.dp))
 
-            Spacer(modifier = Modifier.width(20.dp))
+           //Row Start
+           Row (
+               modifier = Modifier.padding(start = 20.dp)
+           ){
+               Image(
+                   painter = painterResource(R.drawable.shop),
+                   contentDescription = "shop",
+                   modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
+                   contentScale = ContentScale.FillWidth
+               )
 
-            Column (){
-                Text(
-                    text = "Men's T-Shirt",
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.ExtraBold,
-                )
-                Text(
-                    text = "Casual wear",
-                    fontSize = 15.sp,
-                )
-                Text(
-                    text = "Ksh.2000",
-                    fontSize = 15.sp,
-                    textDecoration = TextDecoration.LineThrough
-                )
-                Text(
-                    text = "Price : Ksh.1900",
-                    fontSize = 15.sp,
-                )
-                Row (){
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
-                }
+               Spacer(modifier = Modifier.width(20.dp))
 
-                Button(
-                    onClick = {},
-                    colors = ButtonDefaults.buttonColors(neworange),
-                    shape = RoundedCornerShape(10.dp),
-                    modifier = Modifier.fillMaxWidth().padding(end = 20.dp)
+               Column (){
+                   Text(
+                       text = "Men's T-Shirt",
+                       fontSize = 20.sp,
+                       fontWeight = FontWeight.ExtraBold,
+                   )
+                   Text(
+                       text = "Casual wear",
+                       fontSize = 15.sp,
+                   )
+                   Text(
+                       text = "Ksh.2000",
+                       fontSize = 15.sp,
+                       textDecoration = TextDecoration.LineThrough
+                   )
+                   Text(
+                       text = "Price : Ksh.1900",
+                       fontSize = 15.sp,
+                   )
+                   Row (){
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                   }
 
-                ) {
-                    Text(
-                        text = "Contact Us",
-                    )
-                }
+                   Button(
+                       onClick = {},
+                       colors = ButtonDefaults.buttonColors(neworange),
+                       shape = RoundedCornerShape(10.dp),
+                       modifier = Modifier.fillMaxWidth().padding(end = 20.dp)
 
-            }
-        }
-        //End of Row
+                   ) {
+                       Text(
+                           text = "Contact Us",
+                       )
+                   }
 
+               }
+           }
+           //End of Row
+           //Row Start
+           Row (
+               modifier = Modifier.padding(start = 20.dp)
+           ){
+               Image(
+                   painter = painterResource(R.drawable.shop),
+                   contentDescription = "shop",
+                   modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
+                   contentScale = ContentScale.FillWidth
+               )
+
+               Spacer(modifier = Modifier.width(20.dp))
+
+               Column (){
+                   Text(
+                       text = "Men's T-Shirt",
+                       fontSize = 20.sp,
+                       fontWeight = FontWeight.ExtraBold,
+                   )
+                   Text(
+                       text = "Casual wear",
+                       fontSize = 15.sp,
+                   )
+                   Text(
+                       text = "Ksh.2000",
+                       fontSize = 15.sp,
+                       textDecoration = TextDecoration.LineThrough
+                   )
+                   Text(
+                       text = "Price : Ksh.1900",
+                       fontSize = 15.sp,
+                   )
+                   Row (){
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                       Icon(imageVector = Icons.Default.Star, contentDescription = "",tint = neworange)
+                   }
+
+                   Button(
+                       onClick = {},
+                       colors = ButtonDefaults.buttonColors(neworange),
+                       shape = RoundedCornerShape(10.dp),
+                       modifier = Modifier.fillMaxWidth().padding(end = 20.dp)
+
+                   ) {
+                       Text(
+                           text = "Contact Us",
+                       )
+                   }
+
+               }
+           }
+           //End of Row
+
+       }
 
     }
 
@@ -279,5 +340,5 @@ fun ItemScreen(){
 @Composable
 fun ItemScreenPreview(){
 
-    ItemScreen()
+    ItemScreen(rememberNavController())
 }

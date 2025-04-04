@@ -21,16 +21,20 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.geoffrey.harakamall.R
+import com.geoffrey.harakamall.navigation.ROUT_ITEM
 import com.geoffrey.harakamall.ui.theme.neworange
 
 @Composable
-fun StartScreen(){
+fun StartScreen(navController: NavController){
 Column (
     modifier = Modifier.fillMaxSize(),
     horizontalAlignment = Alignment.CenterHorizontally,
@@ -71,7 +75,9 @@ Column (
     Spacer(modifier = Modifier.height(20.dp))
 
     Button(
-        onClick = {},
+        onClick = {
+            navController.navigate(ROUT_ITEM)
+        },
         colors = ButtonDefaults.buttonColors(neworange),
         shape = RoundedCornerShape(10.dp),
         modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp)
@@ -89,5 +95,5 @@ Column (
 @Composable
 fun StartScreenPreview(){
 
-    StartScreen()
+    StartScreen(rememberNavController())
 }
