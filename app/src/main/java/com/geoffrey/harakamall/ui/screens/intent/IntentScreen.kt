@@ -1,5 +1,6 @@
 package com.geoffrey.harakamall.ui.screens.intent
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.provider.MediaStore
 import androidx.compose.foundation.layout.Column
@@ -12,10 +13,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -32,10 +31,10 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.geoffrey.harakamall.navigation.ROUT_ITEM
 import com.geoffrey.harakamall.ui.theme.neworange
 import com.geoffrey.harakamall.ui.theme.newwhite
 
+@SuppressLint("QueryPermissionsNeeded")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun IntentScreen(navController: NavController){
@@ -110,7 +109,7 @@ fun IntentScreen(navController: NavController){
             onClick = {
 
                 val callIntent= Intent(Intent.ACTION_DIAL)
-                callIntent.data="tel:0720245837".toUri()
+                callIntent.data="tel:0743906136".toUri()
                 mContext.startActivity(callIntent)
 
             },
@@ -133,7 +132,7 @@ fun IntentScreen(navController: NavController){
 
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "text/plain"
-                shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("akinyiglory2@gmail.com"))
+                shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("sperkrey966@gmail.com"))
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
                 shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello, this is the email body")
                 mContext.startActivity(shareIntent)
@@ -180,8 +179,8 @@ fun IntentScreen(navController: NavController){
             onClick = {
 
                 val smsIntent=Intent(Intent.ACTION_SENDTO)
-                smsIntent.data="smsto:0720245837".toUri()
-                smsIntent.putExtra("sms_body","Hello Glory,how was your day?")
+                smsIntent.data="smsto:0743906136".toUri()
+                smsIntent.putExtra("sms_body","Hello Geoffrey,how was your day?")
                 mContext.startActivity(smsIntent)
 
             },

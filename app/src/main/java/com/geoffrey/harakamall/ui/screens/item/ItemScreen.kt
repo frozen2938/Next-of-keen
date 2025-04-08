@@ -49,7 +49,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.geoffrey.harakamall.R
 import com.geoffrey.harakamall.navigation.ROUT_INTENT
-import com.geoffrey.harakamall.navigation.ROUT_ITEM
 import com.geoffrey.harakamall.ui.theme.neworange
 import com.geoffrey.harakamall.ui.theme.newwhite
 
@@ -86,7 +85,9 @@ fun ItemScreen(navController: NavController){
                 IconButton(onClick = {}) {
                     Icon(imageVector = Icons.Default.Notifications, contentDescription = "")
                 }
-                IconButton(onClick = {navController.navigate(ROUT_INTENT)}) {
+                IconButton(onClick = {
+                    navController.navigate(ROUT_INTENT)
+                }) {
                     Icon(imageVector = Icons.Default.ArrowForward, contentDescription = "")
                 }
             }
@@ -278,7 +279,9 @@ fun ItemScreen(navController: NavController){
                    }
 
                    Button(
-                       onClick = {},
+                       onClick = {
+                           navController.navigate(ROUT_INTENT)
+                       },
                        colors = ButtonDefaults.buttonColors(neworange),
                        shape = RoundedCornerShape(10.dp),
                        modifier = Modifier.fillMaxWidth().padding(end = 20.dp)
