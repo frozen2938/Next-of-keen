@@ -2,6 +2,7 @@ package com.geoffrey.harakamall.ui.screens.dashboard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,18 +23,26 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.geoffrey.harakamall.R
+import com.geoffrey.harakamall.navigation.ROUT_ABOUT
+import com.geoffrey.harakamall.navigation.ROUT_HOME
 import com.geoffrey.harakamall.ui.theme.neworange
 import com.geoffrey.harakamall.ui.theme.neworangeone
 
@@ -49,7 +58,7 @@ fun DashboardScreen(navController: NavController){
 
             //Card start
             Card (
-                modifier = Modifier.fillMaxWidth().height(300.dp),
+                modifier = Modifier.fillMaxWidth().height(254.dp),
                 shape = RoundedCornerShape(bottomStart = 60.dp, bottomEnd = 60.dp),
                 colors = CardDefaults.cardColors(neworangeone)
             ){
@@ -65,6 +74,16 @@ fun DashboardScreen(navController: NavController){
                     }
                 )
                 //End TopAppBar
+                Column (
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ){
+                    Text(
+                        text = "WELCOME TO HARAKAMALL",
+                        fontSize = 28.sp,
+                        modifier = Modifier.padding(top = 20.dp)
+                    )
+                }
 
             }
             //End of card
@@ -75,11 +94,33 @@ fun DashboardScreen(navController: NavController){
                     .height(180.dp)
                     .align(alignment = Alignment.BottomCenter)
                     .padding(start = 20.dp, end = 20.dp)
-                    .offset(y = 90.dp)
+                    .offset(y = 90.dp),
             ){
+                Box {
+                    Image(
+                        painter = painterResource(id = R.drawable.card2), // Replace with your image resource
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                    // Add a semi-transparent overlay if needed
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(Color.Black.copy(alpha = 0.4f))
+                    )
 
-
-
+                    // Card content on top of the background
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(16.dp),
+                        verticalArrangement = Arrangement.Bottom
+                    ) {
+                        Text("HarakaMall", color = Color.White, fontSize = 22.sp, style = MaterialTheme.typography.titleMedium)
+                        Text("Harakamall is your one-stop online shopping destination, offering a wide range of quality products at affordable prices. From fashion and electronics to home essentials, we make shopping easy, fast, and secure — all from the comfort of your home.", color = Color.White, style = MaterialTheme.typography.bodyMedium)
+                    }
+                }
             }
 
         }
@@ -92,7 +133,10 @@ fun DashboardScreen(navController: NavController){
 
             //Card one
             Card (
-                modifier = Modifier.width(150.dp).height(200.dp),
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(200.dp)
+                    .clickable { navController.navigate(ROUT_HOME) },
                 elevation = CardDefaults.cardElevation(10.dp)
             ){
                 Column (
@@ -114,7 +158,10 @@ fun DashboardScreen(navController: NavController){
 
             //Card two
             Card (
-                modifier = Modifier.width(150.dp).height(200.dp),
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(200.dp)
+                    .clickable { navController.navigate(ROUT_ABOUT) },
                 elevation = CardDefaults.cardElevation(10.dp)
             ){
                 Column (
@@ -143,7 +190,9 @@ fun DashboardScreen(navController: NavController){
 
             //Card one
             Card (
-                modifier = Modifier.width(150.dp).height(200.dp),
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(200.dp),
                 elevation = CardDefaults.cardElevation(10.dp)
             ){
                 Column (
@@ -174,7 +223,7 @@ fun DashboardScreen(navController: NavController){
                     verticalArrangement = Arrangement.Center
                 ){
                     Image(
-                        painter = painterResource(R.drawable.home1),
+                        painter = painterResource(R.drawable.products),
                         contentDescription = "home",
                         modifier = Modifier.size(100.dp)
                     )

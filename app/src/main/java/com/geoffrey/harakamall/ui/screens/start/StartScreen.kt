@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.geoffrey.harakamall.R
-import com.geoffrey.harakamall.navigation.ROUT_ITEM
+import com.geoffrey.harakamall.navigation.ROUT_DASHBOARD
 import com.geoffrey.harakamall.ui.theme.neworange
 
 @Composable
@@ -74,7 +74,7 @@ Column (
 
     Button(
         onClick = {
-            navController.navigate(ROUT_ITEM)
+            navController.navigate(ROUT_DASHBOARD)
         },
         colors = ButtonDefaults.buttonColors(neworange),
         shape = RoundedCornerShape(10.dp),

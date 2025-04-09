@@ -11,6 +11,7 @@ import com.geoffrey.harakamall.ui.screens.dashboard.DashboardScreen
 import com.geoffrey.harakamall.ui.screens.home.HomeScreen
 import com.geoffrey.harakamall.ui.screens.intent.IntentScreen
 import com.geoffrey.harakamall.ui.screens.item.ItemScreen
+import com.geoffrey.harakamall.ui.screens.start.StartScreen
 
 @Composable
 fun AppNavHost(
@@ -30,6 +31,10 @@ fun AppNavHost(
 
         composable(ROUT_ABOUT) {
             AboutScreen(navController)
+        }
+
+        composable(ROUT_START) {
+            StartScreen(navController)
         }
 
         composable(ROUT_ITEM) {
