@@ -11,13 +11,15 @@ import com.geoffrey.harakamall.ui.screens.dashboard.DashboardScreen
 import com.geoffrey.harakamall.ui.screens.home.HomeScreen
 import com.geoffrey.harakamall.ui.screens.intent.IntentScreen
 import com.geoffrey.harakamall.ui.screens.item.ItemScreen
+import com.geoffrey.harakamall.ui.screens.service.ServiceScreen
+import com.geoffrey.harakamall.ui.screens.splash.SplashScreen
 import com.geoffrey.harakamall.ui.screens.start.StartScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_START  //First screen display
+    startDestination: String = ROUT_SPLASH  //First screen display
 ) {
 
     NavHost(
@@ -47,6 +49,14 @@ fun AppNavHost(
 
         composable(ROUT_DASHBOARD) {
             DashboardScreen(navController)
+        }
+
+        composable(ROUT_SERVICE) {
+            ServiceScreen(navController)
+        }
+
+        composable(ROUT_SPLASH) {
+            SplashScreen(navController)
         }
 
     }

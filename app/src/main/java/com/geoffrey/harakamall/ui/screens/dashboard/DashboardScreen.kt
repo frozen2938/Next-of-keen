@@ -43,6 +43,7 @@ import androidx.navigation.compose.rememberNavController
 import com.geoffrey.harakamall.R
 import com.geoffrey.harakamall.navigation.ROUT_ABOUT
 import com.geoffrey.harakamall.navigation.ROUT_HOME
+import com.geoffrey.harakamall.navigation.ROUT_ITEM
 import com.geoffrey.harakamall.ui.theme.neworange
 import com.geoffrey.harakamall.ui.theme.neworangeone
 
@@ -129,7 +130,10 @@ fun DashboardScreen(navController: NavController){
         Spacer(modifier = Modifier.height(100.dp))
 
         //Start of row
-        Row (modifier = Modifier.padding(start = 35.dp)){
+        Row (
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ){
 
             //Card one
             Card (
@@ -186,13 +190,17 @@ fun DashboardScreen(navController: NavController){
         Spacer(modifier = Modifier.height(20.dp))
 
         //Start of row
-        Row (modifier = Modifier.padding(start = 35.dp)){
+        Row (
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ){
 
             //Card one
             Card (
                 modifier = Modifier
                     .width(150.dp)
-                    .height(200.dp),
+                    .height(200.dp)
+                    .clickable { navController.navigate(ROUT_ITEM) },
                 elevation = CardDefaults.cardElevation(10.dp)
             ){
                 Column (
@@ -214,7 +222,10 @@ fun DashboardScreen(navController: NavController){
 
             //Card two
             Card (
-                modifier = Modifier.width(150.dp).height(200.dp),
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(200.dp)
+                    .clickable { navController.navigate(ROUT_ITEM) },
                 elevation = CardDefaults.cardElevation(10.dp)
             ){
                 Column (

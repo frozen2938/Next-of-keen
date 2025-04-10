@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.geoffrey.harakamall.navigation.ROUT_HOME
 import com.geoffrey.harakamall.ui.theme.neworange
 import com.geoffrey.harakamall.ui.theme.newwhite
 
