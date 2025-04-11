@@ -66,6 +66,7 @@ import com.geoffrey.harakamall.ui.theme.newblue
 import com.geoffrey.harakamall.ui.theme.newgreen
 import com.geoffrey.harakamall.ui.theme.neworange
 import com.geoffrey.harakamall.ui.theme.neworangeone
+import com.geoffrey.harakamall.ui.theme.newred
 import com.geoffrey.harakamall.ui.theme.newwhite
 import com.geoffrey.harakamall.ui.theme.newwhitw1
 
@@ -84,7 +85,7 @@ fun AssignmentScreen(navController: NavController){
         floatingActionButton = {
             FloatingActionButton(
                 onClick = { /* Add action */ },
-                containerColor = neworange,
+                containerColor = newred,
                 shape = fabShape,
                 modifier = Modifier.offset(y = 50.dp)
             ) {
@@ -272,15 +273,39 @@ fun AssignmentScreen(navController: NavController){
                     ){
                         Column (
                             modifier = Modifier.fillMaxSize().background(newgreen),
-                            horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ){
                             Image(
-                                painter = painterResource(R.drawable.contacticon),
-                                contentDescription = "",
-                                modifier = Modifier.size(100.dp)
+                                painter = painterResource(R.drawable.net),
+                                contentDescription = "Custom Vector",
+                                colorFilter = ColorFilter.tint(newwhitw1),
+                                modifier = Modifier
+                                    .size(100.dp)
+                                    .padding(start = 10.dp)
                             )
-                            Text(text = "Contact Us", fontSize = 15.sp)
+                            Text(
+                                text = "Cryptocurrency",
+                                fontSize = 18.sp,
+                                modifier = Modifier.padding(start = 10.dp),
+                                color = newwhitw1
+                            )
+
+                            Spacer(modifier = Modifier.height(8.dp))
+
+                            Text(
+                                text = "Landing Page",
+                                fontSize = 15.sp,
+                                modifier = Modifier.padding(start = 10.dp),
+                                color = newwhitw1
+                            )
+
+                            Spacer(modifier = Modifier.height(20.dp))
+
+                            Text(
+                                text = "24 Tasks",
+                                modifier = Modifier.padding(start = 10.dp),
+                                color = newwhitw1
+                            )
                         }
                     }
                     //End of card three

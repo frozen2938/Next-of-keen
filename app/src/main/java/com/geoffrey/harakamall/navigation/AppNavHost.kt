@@ -7,7 +7,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.geoffrey.harakamall.ui.screens.about.AboutScreen
+import com.geoffrey.harakamall.ui.screens.assignment.AssignmentScreen
 import com.geoffrey.harakamall.ui.screens.dashboard.DashboardScreen
+import com.geoffrey.harakamall.ui.screens.form.FormScreen
+import com.geoffrey.harakamall.ui.screens.form1.Form1Screen
 import com.geoffrey.harakamall.ui.screens.home.HomeScreen
 import com.geoffrey.harakamall.ui.screens.intent.IntentScreen
 import com.geoffrey.harakamall.ui.screens.item.ItemScreen
@@ -57,6 +60,18 @@ fun AppNavHost(
 
         composable(ROUT_SPLASH) {
             SplashScreen(navController)
+        }
+
+        composable(ROUT_ASSIGNMENT) {
+            AssignmentScreen(navController)
+        }
+
+        composable(ROUT_FORM) {
+            FormScreen(navController)
+        }
+
+        composable(ROUT_FORM1) {
+            Form1Screen(navController)
         }
 
     }
