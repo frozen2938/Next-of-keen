@@ -224,7 +224,7 @@ fun Form1Screen(navController: NavController){
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                         visualTransformation = PasswordVisualTransformation()
                     )
-                    //End of username
+                    //End of username/
 
                     Spacer(modifier = Modifier.height(20.dp))
 

@@ -16,14 +16,12 @@ import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -45,10 +43,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.geoffrey.harakamall.R
-import com.geoffrey.harakamall.navigation.ROUT_DASHBOARD
 import com.geoffrey.harakamall.ui.theme.neworange
 import com.geoffrey.harakamall.ui.theme.neworangeone
-import com.geoffrey.harakamall.ui.theme.newwhitw1
 
 @Composable
 fun FormScreen(navController: NavController){
@@ -110,7 +106,7 @@ fun FormScreen(navController: NavController){
 
         //Username
         OutlinedTextField(
-            value = fullname,
+            value = username,
             onValueChange = { username = it },
             modifier = Modifier
                 .fillMaxWidth()
@@ -130,7 +126,7 @@ fun FormScreen(navController: NavController){
 
         //Email
         OutlinedTextField(
-            value = fullname,
+            value = email,
             onValueChange = { email = it },
             modifier = Modifier
                 .fillMaxWidth()
@@ -150,7 +146,7 @@ fun FormScreen(navController: NavController){
 
         //Password
         OutlinedTextField(
-            value = fullname,
+            value = password,
             onValueChange = { password = it },
             modifier = Modifier
                 .fillMaxWidth()
@@ -171,7 +167,7 @@ fun FormScreen(navController: NavController){
 
         //Confirm Password
         OutlinedTextField(
-            value = fullname,
+            value = confirmpassword,
             onValueChange = { confirmpassword = it },
             modifier = Modifier
                 .fillMaxWidth()
